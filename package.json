@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "bun index.html --out-dir=docs",
-    "build": "parcel build index.html"
+    "start": "bun index.html --outdir=./docs",
+    "build": "bun build index.html --outdir ./docs"
   },
   "license": "MIT",
   "devDependencies": {
