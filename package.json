@@ -2,12 +2,11 @@
   "name": "phaser-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "bun index.html --out-dir=docs",
     "build": "parcel build index.html"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "parcel": "^2.7.0"
   },

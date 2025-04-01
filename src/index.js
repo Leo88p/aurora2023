@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import StartingScene from '../scenes/starting-scene';
 
 const config = {
-  type: Phaser.AUTO,
+  type: Phaser.AUTO, //webgl, webgpu
   width: 800,
   height: 600,
   pixelArt: true,
@@ -11,6 +11,7 @@ const config = {
   scene: StartingScene,
   physics: {
     default: "arcade",
+    debug: true,
     arcade: {
       gravity: { y: 0,
         debug: true // set to true to view zones

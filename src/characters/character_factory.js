@@ -55,7 +55,7 @@ export default class CharacterFactory {
         character.maxSpeed = 100;
         character.setCollideWorldBounds(true);
         character.cursors = this.scene.input.keyboard.createCursorKeys();
-        character.animationSets = this.animationLibrary.get('aurora');
+        character.animationSets = this.animationLibrary.get(spriteSheetName);
         return character;
 
     }

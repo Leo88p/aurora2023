@@ -13,12 +13,13 @@ import CharacterFactory from "../src/characters/character_factory";
 let StartingScene = new Phaser.Class({
 
     Extends: Phaser.Scene,
+    characterFrameConfig: {frameWidth: 31, frameHeight: 31},
+    slimeFrameConfig: {frameWidth: 32, frameHeight: 32},
 
     initialize: function StartingScene() {
             Phaser.Scene.call(this, {key: 'StartingScene'});
         },
-    characterFrameConfig: {frameWidth: 31, frameHeight: 31},
-    slimeFrameConfig: {frameWidth: 32, frameHeight: 32},
+    // Running once to load resources
     preload: function () {
 
         //loading map tiles and json with positions
@@ -33,6 +34,7 @@ let StartingScene = new Phaser.Class({
         this.load.spritesheet('punk', punkSpriteSheet, this.characterFrameConfig);
         this.load.spritesheet('slime', slimeSpriteSheet, this.slimeFrameConfig);
     },
+    // Running once to put everything on the scene
     create: function () {
 
         this.gameObjects = [];
@@ -79,7 +81,7 @@ let StartingScene = new Phaser.Class({
 
         this.slimes =  this.physics.add.group();
         let params = {};
-        for(let i = 0; i < 30; i++) {
+        for(let i = 0; i < 10; i++) {
             const x = Phaser.Math.RND.between(50, this.physics.world.bounds.width - 50 );
             const y = Phaser.Math.RND.between(50, this.physics.world.bounds.height -50 );
             params.slimeType = Phaser.Math.RND.between(0, 4);
@@ -101,6 +103,9 @@ let StartingScene = new Phaser.Class({
                 .setDepth(20);
         });
     },
+    // Running every frame!!!
+    // I want 60 FPS 1/60 = 16.6(6) ms
+    // Good network == 50ms, so we need interpolation for multiplayer
     update: function () {
         if (this.gameObjects)
         {
@@ -110,6 +115,7 @@ let StartingScene = new Phaser.Class({
         }
 
     },
+
     tilesToPixels(tileX, tileY)
     {
         return [tileX*this.tileSize, tileY*this.tileSize];
