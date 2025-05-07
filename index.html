@@ -5,13 +5,21 @@
 	<meta charset="UTF-8" />
   <style>
     * { margin:0; padding:0; }
-    html, body { width:100%; height:100%; background: black; }
-    canvas { widht: 600px; display:block; background: black; margin: 0 auto; }
+    html, body { width:100%; height:100%; background: black; display: flex;}
+    canvas { width: 600px; background: black; margin: 0 auto; }
   </style>
 </head>
 
 <body>
 	<!-- <canvas width="100%" height="100%" id='cnvs'></canvas> -->
+  <div>
+    <select id="select">
+      <option value="pursuit">Pursuit</option>
+      <option value="evasion">Evasion</option>
+      <option value="flee">Flee</option>
+    </select>
+    <button id="button">next</button>
+  </div>
 	<script src="./src/index.js" type="module"></script>
 </body>
 </html>

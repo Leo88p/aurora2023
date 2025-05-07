@@ -1,7 +1,7 @@
 import Steering from "./steering.js";
 import Vector2 from 'phaser/src/math/Vector2'
 
-class Pursuit extends Steering {
+class Evasion extends Steering {
 
     constructor (owner, objects, force = 1) {
         super(owner, objects, force);
@@ -27,9 +27,9 @@ class Pursuit extends Steering {
             return new Vector2(0, 0);
         const x = (Math.abs(toTarget.x) < 1) ? 0 : -Math.sign(toTarget.x)*this.ownerSpeed;
         const y = (Math.abs(toTarget.y) < 1) ? 0 : -Math.sign(toTarget.y)*this.ownerSpeed;
-        return new Vector2(x, y);
+        return new Vector2(-x, -y);
 
     }
 }
 
-export {Pursuit};
+export {Evasion};

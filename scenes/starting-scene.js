@@ -18,7 +18,11 @@ let StartingScene = new Phaser.Class({
 
     initialize: function StartingScene() {
             Phaser.Scene.call(this, {key: 'StartingScene'});
+            
         },
+    init: function (data) {
+        this.steering = data.steering;
+    },
     // Running once to load resources
     preload: function () {
 
@@ -87,6 +91,7 @@ let StartingScene = new Phaser.Class({
             params.slimeType = Phaser.Math.RND.between(0, 4);
 
             const slime = this.characterFactory.buildSlime(x, y, params);
+            slime.setSteering(new this.steering(slime, [this.player], 1),this.player)
             this.slimes.add(slime);
             this.physics.add.collider(slime, worldLayer);
             this.gameObjects.push(slime);

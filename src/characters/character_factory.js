@@ -1,4 +1,3 @@
-import {StateTableRow, StateTable} from '../ai/behaviour/state';
 import Slime from "./slime";
 import Player from "./player";
 import cyberpunkConfigJson from "../../assets/animations/cyberpunk.json";
@@ -13,10 +12,6 @@ export default class CharacterFactory {
 
         this.cyberSpritesheets =  ['aurora', 'blue', 'yellow', 'green', 'punk'];
         this.slimeSpriteSheet = 'slime';
-
-        const slimeStateTable = new StateTable(this);
-        slimeStateTable.addState(new StateTableRow('searching', this.foundTarget, 'jumping'));
-        slimeStateTable.addState(new StateTableRow('jumping', this.lostTarget, 'searching'));
 
         let animationLibrary =  new Map();
         this.cyberSpritesheets.forEach(
